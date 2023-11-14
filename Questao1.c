@@ -38,7 +38,7 @@ int main() {
         }
     }
 
-    printf("%s na base 10: %d\n", romano, decimal);
+    
 
     
     int binario[20], temp = decimal, j = 0;
@@ -53,18 +53,19 @@ int main() {
     }
     printf("\n");
 
-   
+   printf("%s na base 10: %d\n", romano, decimal);
+
     char hexa[20];
-    j = 0;
+   j = 0;
     while (decimal > 0) {
-        int resto = decimal % 16;
-        if (resto < 10) {
-            hexa[j] = resto + 48;
-        } else {
-            hexa[j] = resto + 55;
-        }
-        decimal /= 16;
-        j++;
+    int resto = decimal % 16;
+    if (resto < 10) {
+        hexa[j] = resto + '0'; 
+    } else {
+        hexa[j] = resto - 10 + 'a';  
+    }
+    decimal /= 16;
+    j++;
     }
     printf("%s na base 16: ", romano);
     for (int k = j - 1; k >= 0; k--) {
